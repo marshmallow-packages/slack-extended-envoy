@@ -1,6 +1,6 @@
 <?php
 
-namespace Marshmallow\SlackExtended;
+namespace Marshmallow;
 
 use GuzzleHttp\Client;
 use Laravel\Envoy\ConfigurationParser;
@@ -95,6 +95,7 @@ class SlackExtended
                 'release' => 'release',
                 'user' => 'user',
                 'branch' => 'branch',
+                'php_version' => 'php version',
                 'github_url' => 'https://github.com',
             ];
         }
@@ -128,6 +129,14 @@ class SlackExtended
                     ]
                 ],
                 [
+                    "type" => "section",
+                    "text" => [
+                        "type" => "plain_text",
+                        "text" => "With release number #{$options['release']}",
+                        "emoji" => true
+                    ]
+                ],
+                [
                     "type" => "divider"
                 ],
                 [
@@ -148,7 +157,7 @@ class SlackExtended
                         ],
                         [
                             "type" => "mrkdwn",
-                            "text" => "*Release:*\n" . $options['release']
+                            "text" => "*PHP version:*\n" . $options['php_version']
                         ],
                         [
                             "type" => "mrkdwn",
