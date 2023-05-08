@@ -1,6 +1,6 @@
 <?php
 
-namespace Marshmallow;
+namespace Marshmallow\SlackExtended;
 
 use GuzzleHttp\Client;
 use Laravel\Envoy\ConfigurationParser;
