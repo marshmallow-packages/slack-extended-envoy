@@ -1,0 +1,21 @@
+{
+    "name": "marshmallow/slack-extended-envoy",
+    "description": "Rich Text notification for Laravel Envoy",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Marshmallow\\SlackExtended\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.2|^8.0",
+        "guzzlehttp/guzzle": "^6.0|^7.0",
+        "laravel/envoy": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "LTKort",
+            "email": "lars@marshmallow.dev"
+        }
+    ]
+}
