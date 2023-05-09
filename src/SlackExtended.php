@@ -100,7 +100,7 @@ class SlackExtended
             ];
         }
 
-        $default_text = "Deployment for {$options['host']}";
+        $default_text = "Deployment for {$options['host']} ({$options['branch']})";
         $task = $this->task ?? null;
         $status = [
             'success' =>  [
@@ -149,7 +149,7 @@ class SlackExtended
                     "fields" => [
                         [
                             "type" => "mrkdwn",
-                            "text" => "*Host:*\n " . $options['host']
+                            "text" => "*Host:*\n" . $options['host']
                         ],
                         [
                             "type" => "mrkdwn",
