@@ -132,7 +132,7 @@ class SlackExtended
                     ]
                 ],
                 [
-                    "type" => "context",
+                    "type" => "section",
                     "text" => [
                         "type" => "plain_text",
                         "text" => "With release number #{$options['release']}",
