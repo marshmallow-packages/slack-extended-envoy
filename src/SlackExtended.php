@@ -80,10 +80,12 @@ class SlackExtended
         $attachments = $this->createAttachments($this->options, $this->success);
 
         $payload = array_merge(['attachments' => $attachments, 'channel' => $this->channel]);
-
-        (new Client())->post($this->hook, [
-            'json' => $payload,
-        ]);
+        $attachments['channel'] = $this->channel;
+        $payload = $attachments;
+        $payload =
+            (new Client())->post($this->hook, [
+                'json' => $payload,
+            ]);
     }
 
     public function createAttachments($options, $success = true)
@@ -104,12 +106,12 @@ class SlackExtended
         $task = $this->task ?? null;
         $status = [
             'success' =>  [
-                'text' => "{$default_text} is successful",
+                'text' => "✅ {$default_text} is successful",
                 'color' => '#00c100',
                 'image_url' => 'https://marshmallow.dev/storage/slack/success.png',
             ],
             'failed' => [
-                'text' => "{$default_text} failed on task '{$task}'",
+                'text' => "⛔️ {$default_text} failed on task '{$task}'",
                 'color' => '#ff0909',
                 'image_url' => 'https://marshmallow.dev/storage/slack/failed.png',
             ],
@@ -189,7 +191,7 @@ class SlackExtended
             ]
         ];
 
-        return [$attachment];
+        return $attachment;
     }
 
     /**
