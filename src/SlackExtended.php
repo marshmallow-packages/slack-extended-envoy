@@ -80,6 +80,7 @@ class SlackExtended
         $attachments = $this->createAttachments($this->options, $this->success);
 
         $payload = array_merge(['attachments' => $attachments, 'channel' => $this->channel]);
+
         $attachments['channel'] = $this->channel;
         $payload = $attachments;
         $payload =
@@ -100,6 +101,19 @@ class SlackExtended
                 'php_version' => 'php version',
                 'github_url' => 'https://github.com',
             ];
+        }
+
+        $commit_user = match ($options['user']) {
+            'LTKort' => 'ltkort',
+            'stefvanesch' => 'stef',
+            'lucienversendaal' => 'lucien',
+            default => null,
+        };
+
+        if (!$commit_user) {
+            $slack_user = $commit_user;
+        } else {
+            $slack_user = "<@{$commit_user}>";
         }
 
         $default_text = "Deployment for {$options['host']} ({$options['branch']})";
@@ -164,7 +178,7 @@ class SlackExtended
                         ],
                         [
                             "type" => "mrkdwn",
-                            "text" => "*Created by:*\n" . $options['user']
+                            "text" => "*Created by:*\n" . $slack_user
                         ]
                     ]
                 ],
