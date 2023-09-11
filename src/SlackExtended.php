@@ -111,7 +111,7 @@ class SlackExtended
         };
 
         if (!$commit_user) {
-            $slack_user = $commit_user;
+            $slack_user = 'Unknown user';
         } else {
             $slack_user = "<@{$commit_user}>";
         }
