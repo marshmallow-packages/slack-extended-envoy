@@ -122,12 +122,12 @@ class SlackExtended
             'success' =>  [
                 'text' => "✅ {$default_text} is successful",
                 'color' => '#00c100',
-                'image_url' => 'https://marshmallow.dev/storage/slack/success.png',
+                'image_url' => 'https://cdn.marshmallow.nl/slack/success.png',
             ],
             'failed' => [
                 'text' => "⛔️ {$default_text} failed on task '{$task}'",
                 'color' => '#ff0909',
-                'image_url' => 'https://marshmallow.dev/storage/slack/failed.png',
+                'image_url' => 'https://cdn.marshmallow.nl/slack/failed.png',
             ],
         ];
 
