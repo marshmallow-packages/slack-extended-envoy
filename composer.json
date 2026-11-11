@@ -9,7 +9,7 @@
     },
     "require": {
         "php": "^7.2|^8.0",
-        "guzzlehttp/guzzle": "^6.0|^7.0",
+        "guzzlehttp/guzzle": "^8.3.1",
         "laravel/envoy": "^2.0"
     },
     "authors": [
